@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="cookies.css" />
+    <script>
+      function clicked() {
+        // How to store different values at the same time
+        let key = document.myForm.name1.value;
+        let value = document.myForm.name2.value;
+        localStorage.setItem(key, value);
+        // Remove items
+        localStorage.removeItem("color");
+        // Getting the item
+        console.log(localStorage.getItem("user"));
+        // Clear all the storage
+        localStorage.clear();
+
+        // Store sessions (get deleted opening every new window)
+        document.cookie = "username = Salma";
+
+        // Set expiration date to cookies
+
+        let expiration = new Date();
+        expiration.setMonth(expiration.getMonth() + 1);
+        document.cookie =
+          "username=Salma; expires=" + expiration.toUTCString() + ";";
+
+        // Delete same cookies
+        let expiration = new Date();
+        expiration.setMonth(expiration.getMonth() - 1);
+        document.cookie =
+          "username=Salma; expires=" + expiration.toUTCString() + ";";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <form name="myForm">
+        Enter key info : <input type="text" name="name1" /> <br />
+        <br />
+        Enter cookie info :
+        <input type="text" name="name2" /><br />
+        <br />
+
+        <input
+          class="submit"
+          type="button"
+          value="submit"
+          onclick="clicked()"
+        />
+      </form>
+    </div>
+  </body>
+</html>

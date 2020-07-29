@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dialog boxes</title>
+  </head>
+  <body>
+    <script>
+      function demo() {
+        // Alert
+        alert("I got clicked!!");
+
+        // Confirm
+        const retValue = confirm("Are you sure?");
+        if (retValue === true) {
+          alert("Yes");
+        } else {
+          alert("No");
+        }
+
+        // user input
+        const input = prompt("Enter your age: ");
+        document.write("You entered: " + input);
+      }
+    </script>
+
+    <input type="button" onclick="demo()" value="Click Me" />
+  </body>
+</html>
